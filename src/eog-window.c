@@ -3978,6 +3978,7 @@ static const GActionEntry window_actions[] = {
 	{ "save",          eog_window_action_save },
 	{ "save-as",       eog_window_action_save_as },
 	{ "close",         eog_window_action_close_window },
+
 	{ "print",         eog_window_action_print },
 	{ "properties",    eog_window_action_properties },
 	{ "set-wallpaper", eog_window_action_wallpaper },
@@ -3991,14 +3992,17 @@ static const GActionEntry window_actions[] = {
 	{ "go-first",        eog_window_action_go_first },
 	{ "go-last",         eog_window_action_go_last },
 	{ "go-random",       eog_window_action_go_random },
+
 	{ "rotate-90",       eog_window_action_rotate_90 },
 	{ "rotate-270",      eog_window_action_rotate_270 },
 	{ "flip-horizontal", eog_window_action_flip_horizontal },
 	{ "flip-vertical",   eog_window_action_flip_vertical },
+
 	{ "move-trash",      eog_window_action_move_to_trash },
 	{ "delete",          eog_window_action_delete },
 	{ "copy",            eog_window_action_copy_image },
 	{ "undo",            eog_window_action_undo },
+
 	{ "zoom-in",         eog_window_action_zoom_in },
 	{ "zoom-out",        eog_window_action_zoom_out },
 	{ "zoom-normal",     eog_window_action_zoom_normal },
@@ -4782,11 +4786,11 @@ eog_window_key_press (GtkWidget *widget, GdkEventKey *event)
 		break;
 #endif
 	case GDK_KEY_Escape:
-		if (EOG_WINDOW (widget)->priv->mode == EOG_WINDOW_MODE_FULLSCREEN) {
+		/*if (EOG_WINDOW (widget)->priv->mode == EOG_WINDOW_MODE_FULLSCREEN) {
 			eog_window_stop_fullscreen (EOG_WINDOW (widget), FALSE);
 		} else if (EOG_WINDOW (widget)->priv->mode == EOG_WINDOW_MODE_SLIDESHOW) {
 			eog_window_stop_fullscreen (EOG_WINDOW (widget), TRUE);
-		} else {
+		} else*/ {
 			eog_window_action_close_window (NULL, NULL, EOG_WINDOW (widget));
 			return TRUE;
 		}
